@@ -1,1 +1,1 @@
-# gs-occ3d.github.io
+LONG3R Project Page

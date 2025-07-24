@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GS-Occ3D: Scaling Vision-only Occupancy Reconstruction for Autonomous Driving
+  with Gaussian Splatting">
+  <meta name="keywords" content="GS-Occ3D>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GS-Occ3D: Scaling Vision-only Occupancy Reconstruction for Autonomous Driving
+  with Gaussian Splatting</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">GS-Occ3D: Scaling Vision-only Occupancy Reconstruction for Autonomous Driving
+              with Gaussian Splatting</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Baijun Ye</a><sup>1,2*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Minghui Qin</a><sup>1*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Saining Zhang</a><sup>3*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Moonjun Goon</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Shaoting Zhu</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Zebang Shen</a><sup>5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Luan Zhang</a><sup>5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Lu Zhang</a><sup>5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Hao Zhao</a><sup>3,4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://gs-occ3d.github.io/">Hang Zhao</a><sup>1,2†</sup>
+              </span>
+            </div>
+  
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>IIIS, THU </span>
+              <span class="author-block"><sup>2</sup>Shanghai Qi Zhi Institute </span>
+              <span class="author-block"><sup>3</sup>AIR, THU </span>
+              <span class="author-block"><sup>4</sup>BAAI </span>
+              <span class="author-block"><sup>5</sup>Mercedes-Benz Group China Ltd.</span>
+              <h2 class="title is-3" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">ICCV 2025</h2>
+  
+            </div>
+  
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://gs-occ3d.github.io/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/zgchen33/LONG3R/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+ 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Occupancy is crucial for autonomous driving, providing essential geometric priors for perception and planning. However, existing methods predominantly rely on LiDAR-based occupancy annotations, which limits scalability and prevents leveraging vast amounts of potential crowdsourced data for auto-labeling. To address this, we propose GS-Occ3D, a scalable vision-only framework that directly reconstructs occupancy. Vision-only occupancy reconstruction poses significant challenges due to sparse viewpoints, dynamic scene elements, severe occlusions, and long-horizon motion. Existing vision-based methods primarily rely on mesh representation, which suffer from incomplete geometry and additional post-processing, limiting scalability. To overcome these issues, GS-Occ3D optimizes an explicit occupancy representation using an Octree-based Gaussian Surfel formulation, ensuring efficiency and scalability. Additionally, we decompose scenes into static background, ground, and dynamic objects, enabling tailored modeling strategies: (1) Ground is explicitly reconstructed as a dominant structural element, significantly improving large-area consistency; (2) Dynamic vehicles are separately modeled to better capture motion-related occupancy patterns. Extensive experiments on the Waymo dataset demonstrate that GS-Occ3D achieves state-of-the-art geometry reconstruction results. By curating vision-only binary occupancy labels from diverse urban scenes, we show their effectiveness for downstream occupancy models on Occ3D-Waymo and superior zero-shot generalization on Occ3D-nuScenes. It highlights the potential of large-scale vision-based occupancy reconstruction as a new paradigm for autonomous driving perception.
+          </p>          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content has-text-justified">
+          <center>
+            <img src="./static/images/teaser.jpg" width="1000">
+          </center> 
+          <p>
+            (a) Existing methods predominantly rely on LiDAR-based occupancy annotations, requiring <b>costly specialized surveying vehicles</b>, which significantly limits scalability.
+          </p>
+          <p>
+            (b) In contrast, GS-Occ3D introduces a scalable, vision-only occupancy reconstruction framework that effectively harnesses <b>abundant crowdsourced data from consumer-grade vehicles</b> for auto-labeling. Our approach enables affordable and scalable curation of high-quality occupancy labels.
+          </p>
+          <p>
+            (c) We present an overlay of the binary prediction <span style="color:hotpink;">(pink)</span> and the Occ3D-Waymo validation GT (other colors represent semantics), solely to visualize areas where the predictions are incomplete. Comparing models trained with two types of labels, we achieve generally comparable or even better <b>generalization geometry results</b> in certain setups.
+          </p>
+          
+          <br>
+          <br> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <center>
+            <img src="./static/images/main-gsocc-new.png" width="1000">
+          </center> 
+          <p>
+            <b>Overview of the GS-Occ3D.</b> 
+            <b>Left:</b> Panoramic street views captured along long trajectories are used to generate a sparse point cloud and ground surfels as initialization. We adopt an Octree-based Gaussian Surfel representation that integrates ground, background, and dynamic objects to achieve scalable vision-only geometry reconstruction. Here, we present an <b>uphill</b> scene with colors indicating height.
+          </p>
+          <p>
+            <b>Middle:</b> Given the vision-only point cloud, our label curation pipeline applies frame-wise division and multi-frame aggregation to define appropriate perception ranges per frame, while increasing point cloud density, especially for dynamic objects with incomplete observations. Ray-casting is then applied to each frame to determine voxel occupancy, explicitly handling occlusions from the camera’s viewpoint.
+          </p>
+          <p>
+            <b>Right:</b> The resulting vision-only labels can be used to train downstream occupancy models, enabling these models to generalize to unseen scenes with geometric reasoning capability. <span style="color:hotpink;">Pink</span> indicates the binary voxel, while other colors represent Occ3D labels.
+          </p>
+          
+          <br>
+          <br> 
+        </div>
+      </div>
+    </div>
+  
+
+    <!-- Paper Results. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: 1fr; /* Creates 2 columns with equal width */
+              grid-gap: 10px; /* Adjust the gap between the divs */
+            }
+            .grid-item {
+              width: 100%;
+            }
+          </style>
+
+          <h3 class="title is-4">3D Reconstruction</h3>
+          <div class="content has-text-justified">
+            We evaluate the 3D reconstruction performance on the 7-scenes and NRGBD datasets.
+            <br> <br>
+              <center>
+              <img src="./static/images/recons_table1.png"  width="500">
+              </center> 
+          <br> 
+          </div>
+
+          <h3 class="title is-4">Camera Pose Estimation</h3>
+          <div class="content has-text-justified">
+            We evaluate camera pose estimation on 7Scenes, TUM Dynamics, and ScanNet datasets.
+            <br> <br>
+              <center>
+              <img src="./static/images/pose_table.png"  width="1000">
+              </center> 
+          <br> 
+          </div>
+        
+        <h2 class="title is-3">Visualization</h2>
+        <div class="content has-text-justified">
+          <p>We visualize the 3D reconstruction results of LONG3R and other state-of-the-art methods.</p>
+          <center><img src="./static/images/vis.jpg" width="1000"></center>
+        </div>
+      
+      </div>
+    </div> 
+
+  </div> -->
+    <!-- Paper Results and Visualization -->
+
+<div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+
+          <h3 class="title is-4">SOTA Geometry Reconstruction</h3>
+          <p>NeuS<sup>*</sup> uses 1 dense and 4 sparse LiDARs, StreetSurf<sup>†</sup> uses 4 sparse LiDARs, and all other methods are vision-only. <sup>‡</sup> indicates using our ground gaussians. MB indicates storage size, GB indicates GPU memory, and Time indicates training time.</p>
+          <center><img src="./static/images/tab1.jpg" width="600"></center>
+
+          <h3 class="title is-4">Occupancy Generalization and Fitting Results on the Occ3D Dataset</h3>
+          <p>Generalization and Fitting Results on the Occ3D Dataset for SOTA occupancy model CVT-Occ under different training and evaluation label combinations.</p>
+          <center><img src="./static/images/tab2.jpg" width="600"></center>
+        </div>
+        
+        <h2 class="title is-3">Visualization</h2>
+        <div class="content has-text-justified">
+          <h3 class="title is-4">Visualization of Geometry Reconstruction on Waymo</h3>
+          <p>The color represents CD with respect to LiDAR, ranging from <span style="color:blue;">blue</span> (lower CD) to <span style="color:red;">red</span> (higher CD). Our method exhibits improved reconstruction fidelity in weakly-textured regions compared to other methods, while maintaining structural completeness comparable to LiDAR point cloud, even in the absence of geometric priors.</p>
+          <center><img src="./static/images/CD.jpg" width="1000"></center>
+
+          <h3 class="title is-4">Detailed Geometry</h3>
+          <p>We present the detailed geometry of the <span style="color:red;">red-boxed</span> area in Figure 1, achieving results that are both comparable and complementary to LiDAR. The first row is uphill, while the second is downhill followed by uphill.</p>
+          <center><img src="./static/images/detailed.jpg" width="1000"></center>
+          <!-- <p>We visualize the 3D reconstruction results of LONG3R and other state-of-the-art methods.</p>
+          <center><img src="./static/images/vis.jpg" width="1000"></center> -->
+          <h3 class="title is-4">Curated Labels</h3>
+          <p>We achieve globally comparable geometry to Occ3D, ensuring reliable supervision for occupancy model training without priors.</p>
+          <center><img src="./static/images/voxel.jpg" width="1000"></center>
+
+          <h3 class="title is-4">Generalization Results on the Occ3D-Waymo Validation Set</h3>
+          <p>We evaluate the SOTA occupancy model CVT-Occ trained with our labels and Occ3D, achieving reasonable and overall comparable results.</p>
+          <center><img src="./static/images/generalization.jpg" width="1000"></center>
+
+          <h3 class="title is-4">More Visualization.</h3>
+          <p>Up: Richer semantic labels. Down: superior generalization on Occ3D-nuScenes. <span style="color:hotpink;">Pink</span> indicates binary prediction, others show errors.</p>
+          <center><img src="./static/images/morevis.jpg" width="1000"></center>
+
+        </div>
+
+        <h2 class="title is-3">Ablation Study</h2>
+        <div class="content has-text-justified">
+
+          <h3 class="title is-4">Ablation Studies on Waymo Static-32 Split.</h3>
+          <p>We evaluate varying camera counts and representations. All methods use our Ground Gaussians for fairness. Both chamfer distance of the point cloud and mesh are measured against LiDAR. <sup>‡</sup> indicates using our ground gaussians. MB indicates storage size, GB indicates GPU memory, and Time indicates training time.</p>
+          <center><img src="./static/images/tab3.jpg" width="600"></center>
+
+          <h3 class="title is-4">Ground Gaussians</h3>
+          <p>We show the effectiveness of our ground gaussians. Colors indicate height, ranging from <span style="color:blue;">blue</span> to <span style="color:red;">red</span>.</p>
+          <center><img src="./static/images/ablation.jpg" width="1000"></center>
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{long3r,
+      title={GS-Occ3D: Scaling Vision-only Occupancy Reconstruction for Autonomous Driving
+  with Gaussian Splatting}, 
+      author={Baijun Ye and Minghui Qin and Saining Zhang and Moonjun Goon and Shaoting Zhu and Zebang Shen and Luan Zhang and Lu Zhang and Hao Zhao and Hang Zhao},
+      journal={arXiv preprint arXiv:},
+      year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This great website template was borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
