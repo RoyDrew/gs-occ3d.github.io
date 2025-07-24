@@ -1,1 +1,1 @@
-LONG3R Project Page
+GS-Occ3D Project Page
