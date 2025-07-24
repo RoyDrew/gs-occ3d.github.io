@@ -68,7 +68,7 @@
                 <a href="https://gs-occ3d.github.io/">Moonjun Goon</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://gs-occ3d.github.io/">Shaoting Zhu</a><sup>1,2</sup>,
+                <a href="https://gs-occ3d.github.io/">Shaoting Zhu</a><sup>1,2</sup>,<br>
               </span>
               <span class="author-block">
                 <a href="https://gs-occ3d.github.io/">Zebang Shen</a><sup>5</sup>,
@@ -179,7 +179,7 @@
         <h2 class="title is-3">Motivation</h2>
         <div class="content has-text-justified">
           <center>
-            <img src="./static/images/teaser.jpg" width="1000">
+            <img src="./static/images/teaser.jpg" width="800">
           </center> 
           <p>
             (a) Existing methods predominantly rely on LiDAR-based occupancy annotations, requiring <b>costly specialized surveying vehicles</b>, which significantly limits scalability.
@@ -293,20 +293,20 @@
 
           <h3 class="title is-4">Detailed Geometry</h3>
           <p>We present the detailed geometry of the <span style="color:red;">red-boxed</span> area in Figure 1, achieving results that are both comparable and complementary to LiDAR. The first row is uphill, while the second is downhill followed by uphill.</p>
-          <center><img src="./static/images/detailed.jpg" width="1000"></center>
+          <center><img src="./static/images/detailed.jpg" width="600"></center>
           <!-- <p>We visualize the 3D reconstruction results of LONG3R and other state-of-the-art methods.</p>
           <center><img src="./static/images/vis.jpg" width="1000"></center> -->
           <h3 class="title is-4">Curated Labels</h3>
           <p>We achieve globally comparable geometry to Occ3D, ensuring reliable supervision for occupancy model training without priors.</p>
-          <center><img src="./static/images/voxel.jpg" width="1000"></center>
+          <center><img src="./static/images/voxel.jpg" width="600"></center>
 
           <h3 class="title is-4">Generalization Results on the Occ3D-Waymo Validation Set</h3>
           <p>We evaluate the SOTA occupancy model CVT-Occ trained with our labels and Occ3D, achieving reasonable and overall comparable results.</p>
-          <center><img src="./static/images/generalization.jpg" width="1000"></center>
+          <center><img src="./static/images/generalization.jpg" width="600"></center>
 
           <h3 class="title is-4">More Visualization.</h3>
           <p>Up: Richer semantic labels. Down: superior generalization on Occ3D-nuScenes. <span style="color:hotpink;">Pink</span> indicates binary prediction, others show errors.</p>
-          <center><img src="./static/images/morevis.jpg" width="1000"></center>
+          <center><img src="./static/images/morevis.jpg" width="800"></center>
 
         </div>
 
@@ -319,7 +319,7 @@
 
           <h3 class="title is-4">Ground Gaussians</h3>
           <p>We show the effectiveness of our ground gaussians. Colors indicate height, ranging from <span style="color:blue;">blue</span> to <span style="color:red;">red</span>.</p>
-          <center><img src="./static/images/ablation.jpg" width="1000"></center>
+          <center><img src="./static/images/ablation.jpg" width="600"></center>
         </div>
       </div>
     </div>
@@ -332,7 +332,7 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{long3r,
+    <pre><code>@article{GS-Occ3D,
       title={GS-Occ3D: Scaling Vision-only Occupancy Reconstruction for Autonomous Driving
   with Gaussian Splatting}, 
       author={Baijun Ye and Minghui Qin and Saining Zhang and Moonjun Goon and Shaoting Zhu and Zebang Shen and Luan Zhang and Lu Zhang and Hao Zhao and Hang Zhao},
